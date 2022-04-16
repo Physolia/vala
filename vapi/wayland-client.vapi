@@ -66,7 +66,7 @@ namespace Wl {
 	}
 
 	[Compact]
-	[CCode (cname = "struct wl_surface", free_function = "wl_callback_destroy")]
+	[CCode (cname = "struct wl_callback", free_function = "wl_callback_destroy")]
 	public class Callback {
 		public int add_listener (Wl.CallbackListener listener, void* data);
 		public void set_user_data (void* user_data);
@@ -207,7 +207,6 @@ namespace Wl {
 		public void set_user_data (void* user_data);
 		public void* get_user_data ();
 		public uint32 get_version ();
-		public Wl.ShellSurface get_shell_surface (Wl.Surface surface);
 		public void pong (uint32 serial);
 		public void move (Wl.Seat seat, uint32 serial);
 		public void resize (Wl.Seat seat, uint32 serial, uint32 edges);
@@ -215,7 +214,7 @@ namespace Wl {
 		public void set_transient (Wl.Surface surface, int32 x, int32 y, uint32 flags);
 		public void set_fullscreen (uint32 method, uint32 framerate, Wl.Output output);
 		public void set_popup (Wl.Seat seat, uint32 serial, Wl.Surface parent, int32 x, int32 y, uint32 flags);
-		public void set_maximized (uint32 method, uint32 framerate, Wl.Output output);
+		public void set_maximized (Wl.Output output);
 		public void set_title (string title);
 		public void set_class (string class_);
 	}
